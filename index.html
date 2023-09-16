@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="navbar" id="nav">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="dropdown-content">
+            <a href="portfolio/index.html">Home</a>
+            <a href="index.html">Grid</a>
+            <a href="https://www.linkedin.com/in/sahil-gupta-b15527250/">LinkedIn</a>
+        </div>
+    </div>    
+    <div class="partition"></div>
+    <div class="rectangular-section">
+        <div class="custom-element"></div>
+    </div>
+
+    <div class="rectangular-section1">
+      <div class="logoout">
+        <img src="images/ecelllogo.png" alt="E-cell Logo" style="width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <div class="rectangular-section2">
+        <div class="grid-c">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item" id="lastGridItem"></div>
+        </div>
+    </div>
+    <script>
+        const gridItems = document.querySelectorAll('.grid-item');
+        gridItems.forEach(function (gridItem) {
+            gridItem.addEventListener('click', function () {
+              this.style.backgroundColor = 'red';
+            })})
+        document.getElementById('lastGridItem').addEventListener('click', function () {
+            const colors = ['blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue'];
+            for (let i = 0; i < gridItems.length; i++) {
+              const colorIndex = i % colors.length;
+              const color = colors[colorIndex];
+              setTimeout(() => {
+                gridItems[i].style.backgroundColor = color;
+              }, i * 500); 
+            }
+          });
+    </script>
+</body>
+</html>
