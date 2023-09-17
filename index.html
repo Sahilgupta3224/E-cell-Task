@@ -44,17 +44,20 @@
     </div>
     <script>
         const gridItems = document.querySelectorAll('.grid-item');
-        gridItems.forEach(function (gridItem) {
+        const c = [];
+        gridItems.forEach(function (gridItem,i) {
             gridItem.addEventListener('click', function () {
               this.style.backgroundColor = 'red';
+              c.push(i);
             })})
         document.getElementById('lastGridItem').addEventListener('click', function () {
             const colors = ['blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue'];
             for (let i = 0; i < gridItems.length; i++) {
               const colorIndex = i % colors.length;
               const color = colors[colorIndex];
+              const ci=c[i];
               setTimeout(() => {
-                gridItems[i].style.backgroundColor = color;
+                gridItems[ci].style.backgroundColor = color;
               }, i * 500); 
             }
           });
